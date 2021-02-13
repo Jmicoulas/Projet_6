@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const userRoutes = require('./routes/user');
+const app = express();
+const router = express.Router();
 
 // pour corriger l'erreur CORS
 app.use((req, res, next) => { 
@@ -12,14 +14,13 @@ app.use((req, res, next) => {
   next();
 });
 
-const app = express();
-
 mongoose.connect('mongodb+srv://Shinojima:R8HJpb3paJGEj6Jb@piquantedb.mqb4n.mongodb.net/PiquanteDB?retryWrites=true&w=majority',
-  { useNewUrlParser: true,
+  {useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-app.use('/api/auth', userRoutes);
+app.use('/api', userRoutes);
 
+module.exports = router;
 module.exports = app;
