@@ -1,4 +1,4 @@
-const Sauce = require('../models/sauce');
+const Sauce = require('../models/Sauce');
 
 module.exports = (req, res, next) =>{
     let message = "";

@@ -18,7 +18,7 @@ exports.createSauce = (req,res,next) => {
             next();
         })
         .catch(error => res.status(400).json({ error }));
-        }
+};
 
 exports.getAllSauces = (req,res,next) => {
     Sauce.find()
