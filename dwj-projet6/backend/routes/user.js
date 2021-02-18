@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const userCtrl = require('../controllers/user');
+const regexEmail = require('../middleware/regexEmail');
 
-router.use('/signup', userCtrl.signup);
+router.use('/signup', regexEmail, userCtrl.signup);
 router.use('/login', userCtrl.login);
 
 module.exports = router;
