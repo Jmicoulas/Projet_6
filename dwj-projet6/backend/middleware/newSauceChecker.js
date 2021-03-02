@@ -4,6 +4,8 @@ const sauceRegex = [/^[\wéèàêûçàôë]{2}[\w\s-'éèàêûñçàôë]{0,48
                     /^[a-zA-Zéèàêûçàôë]{2}[a-zA-Z\s-'éèàêñûçàôë]{0,48}$/i,
                     /^([1-9]|10)$/];
 
+const Sauce = require('../models/Sauce');
+
 module.exports = (req,res,next) => {
     let compteur = 0;
     if(req.body.sauce) {
@@ -12,7 +14,7 @@ module.exports = (req,res,next) => {
         sauceObjet = { ...req.body };
     }
     for (const key in sauceObjet) {
-        if (sauceObjet.hasOwnProperty(key)&&compteur<5) {
+        if (sauceObjet.hasOwnProperty(key)&&compteur<5) {    
             if(!sauceRegex[compteur].test(sauceObjet[key])) {
                 req.body.errorMessage = "Le champ "+key+ " ne semble pas valide !";  
                 next();

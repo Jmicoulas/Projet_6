@@ -14,7 +14,7 @@ const corsOption ={
 };
 app.use(cors(corsOption));
 
-mongoose.connect('mongodb+srv://Shinojima:6cSZK1tyNdxhl6UD@piquantedb.mqb4n.mongodb.net/PiquanteDB?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://admin:nhvJ6A2YkDJcnSX9@piquantedb.mqb4n.mongodb.net/PiquanteDB?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussie !'))
