@@ -8,7 +8,7 @@ module.exports = (req,res,next) => {
 
             next();
         } else {
-            res.status(400).json({ message: "Le mot de passe doit être d'au smoins 10 caractères"
+            res.status(400).json({ message: "Le mot de passe doit être d'au moins 6 caractères"
             +" et posséder au moins un chiffre, une lettre majuscule et une lettre minuscule"});
         }
     } else {
